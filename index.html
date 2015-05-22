@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Super Simple Backbone Blog</title>
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="main-nav">
+          <ul class="nav navbar-nav">
+            <li><a href="#/dashboard">Dashboard</a></li>
+            <li><a href="#/create-blog">Create Blog</a></li>
+          </ul>
+        </div><!--.navbar-collapse-->
+      </div><!--.container-fluid-->
+    </nav>
+
+    <div id="content-container">
+    </div>
+
+    <script type="text/template" id="dashboard-view-template">
+        <h1>Dashboard</h1>
+       {{greeting}}
+    </script>
+
+    <script type="text/template" id="create-blog-template">
+        <h1>Create A Blog</h1>
+        {{content}}
+    </script>
+
+
+    <script src="libs/jquery-1.11.3.js"></script> <!--Jquery must come first -->
+    <script src="libs/underscore-1.8.3.js"></script> <!--We have to load Underscore before backbone-->
+    <script src="libs/backbone-1.2.0.js"></script>
+    <script src="libs/handlebars-v3.0.3.js"></script>
+    <script src="libs/json2.js"></script>
+
+    <script src="app/app.js"></script>
+  </body>
+</html>
