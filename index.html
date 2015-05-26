@@ -23,17 +23,72 @@
       </div><!--.container-fluid-->
     </nav>
 
-    <div id="content-container">
+
+<!--Add container class to content-container-->
+    <div id="content-container" class="container">
     </div>
 
     <script type="text/template" id="dashboard-view-template">
+<!--Add div to center our dahsboard using bootstraps grid system-->
+      <div class="container col-md-offset-3 col-md-6 text-center">
         <h1>Dashboard</h1>
-       {{greeting}}
+        <small>{{greeting}}</small>
+
+<!--Utilize Handlebars #each helper to iterate through theBlogs,
+    use bootstrap classes for a clean look-->
+        {{#each theBlogs}}
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <div class="pull-right">
+                <button type="button" class="btn btn-default btn-xs btn-edit">EDIT</button><!--these buttons do nothing right now-->
+                <button type="button" class="btn btn-default btn-xs btn-delete">DELETE</button>
+              </div>
+              <!--Put the blogTitle here vvvv-->
+              <h3 class="panel-title">{{blogTitle}}</h3>
+            </div>
+
+            <div class="panel-body">
+              <!--Put the blogBody here vvvv -->
+              {{blogBody}}
+            </div>
+          </div>
+        {{/each}} <!--Handlebars will repeat this until there are no more models in theBlogs-->
+
+       </div>
     </script>
 
     <script type="text/template" id="create-blog-template">
+<!--Add div to center our creation screen using bootstraps grid system-->
+      <div class="container col-md-offset-3 col-md-6 text-center">
         <h1>Create A Blog</h1>
-        {{content}}
+        <small>{{content}}</small>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <!--Put the blogTitle here vvvv-->
+            <div class="form-group">
+              <label for="blog-title">Blog Title:</label>
+              <input type="text" class="form-control" id="blog-title" placeholder="Blog Title">
+            </div><!--form-group-->
+          </div><!--panel-heading-->
+
+          <div class="panel-body">
+            <!--Put the blogBody here vvvv -->
+            <div class="form-group">
+              <label for="blog-body">Blog Body:</label>
+              <textarea class="form-control" rows="10" placeholder="Type your blog entry here!" id="blog-body"></textarea>
+            </div><!--form-group-->
+
+            <!--we need a button for the user to press to 'submit' their blog-->
+            <div>
+              <button type="button" id="submit-button" class="btn submit-button btn-default col-xs-3 pull-right">Submit</button>
+            </div>
+
+          </div><!--panel-body-->
+        </div> <!--panel panel-default-->
+
+      </div><!--container col-md-offset-3 col-md-6 text-center-->
+
     </script>
 
 
